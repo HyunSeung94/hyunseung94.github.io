@@ -65,20 +65,21 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: Project name
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
-        additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        quote: >
-          Short overview of the project (optional)
+        title: 메타빌드
+        sub_title: Full Stack Developer
+        caption: 2019.01 ~ 2021.10
         description: | # this will include new lines to allow paragraphs
-          Description about the work on/with the project
+          * 스마트시티 통합플랫폼 구축 및 운영
+          * 스마트시티 통합플랫폼 v2.0 개발
+          * IoT 플랫폼 개발
+          * Music DMS 개발
+      - title: 인라이플
+        sub_title: Backend Developer
+        caption: 2021.11 ~ 현재
+        description: | # this will include new lines to allow paragraphs
+          * 플러스콜 신규 상품 개발
+          * 구글 RTB 송출 고도화 개발
+          * 네이트 RTB 신규 개발
   - title: Experience
     layout: list
     content:
