@@ -104,7 +104,7 @@ content:
   - title: Education
     layout: list
     content:
-      - layout: top-right
+      - layout: left
         title: 한국소프트웨어인재개발원(KOSMO)
         sub_title: Java 개발자 양성과정
         caption: 2018.06.19 ~ 2018.12.21
