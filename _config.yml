@@ -105,19 +105,11 @@ content:
     layout: list
     content:
       - layout: top-right
-        title: Institution name
-        sub_title: Qualifications (eg. BA Performing Arts)
-        caption: Date Range (eg. 2016 - 2019)
-        quote: >
-          Short institution or course description (optional)
+        title: 한국소프트웨어인재개발원(KOSMO)
+        sub_title: Java 개발자 양성과정
+        caption: 2018.06.19 ~ 2018.12.21
         description: | # this will include new lines to allow paragraphs
-          Description of qualification
-  - title: A Little More About Me
-    layout: text
-    content: | # this will include new lines to allow paragraphs
-      This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
-
-      Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
+          * 6개월 교육 수료
 
 # Footer
 footer_show_references: true
