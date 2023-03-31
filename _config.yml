@@ -103,7 +103,7 @@ content:
         caption: 2021.06. ~ 2021.9
         description: | # this will include new lines to allow paragraphs
           * 정부 R&D과제 프로젝트 개발
-      - title: 플러스콜 광고 송출 개발
+      - title: 플러스콜 송출 개발
         sub_title: 신규 상품 개발
         caption: 2021.11 ~ 2022.07
         description: | # this will include new lines to allow paragraphs
