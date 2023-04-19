@@ -67,6 +67,7 @@ content:
           * 스마트시티 통합플랫폼 v2.0 개발
           * IoT 플랫폼 개발
           * Music DMS 개발
+        right: stack
         stack: Java, Spring Boot, JPA, Postgrsql, tibero, PM2, Typescript,Angular7,tomcat8,
       - title: 인라이플
         sub_title: Backend Developer
