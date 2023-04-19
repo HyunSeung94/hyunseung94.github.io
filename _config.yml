@@ -67,8 +67,6 @@ content:
           * 스마트시티 통합플랫폼 v2.0 개발
           * IoT 플랫폼 개발
           * Music DMS 개발
-        right: stack
-        stack: Java, Spring Boot, JPA, Postgrsql, tibero, PM2, Typescript,Angular7,tomcat8,
       - title: 인라이플
         sub_title: Backend Developer
         caption: 2021.11 ~ 현재
@@ -89,37 +87,51 @@ content:
           * 경산시 스마트시티 통합플랫폼 구축
           * 파주시 스마트시티 통합플랫폼 구축
           * 안산시 스마트시티 통합플랫폼 구축
+        right: 기술 스택
+        stack: Java8, Spring Boot, tibero, tomcat8, Linux, ubuntu
       - title: 스마트시티 통합플랫폼 v2.0
         sub_title: 스마트시티 통합플랫폼 v2.0 개발 및 인증
         caption: 2020.07 ~ 2021.02
         description: | # this will include new lines to allow paragraphs
           * 2020.07 ~ 2020.12 스마티시티 통합플랫폼 2.0 개발
           * 2020.12 ~ 2021.02 통합플랫폼 GS 인증 획득
+        right: 기술 스택
+        stack: Java8, Spring Boot, JPA, Postgrsql, tibero, PM2, Typescript, Angular7, tomcat8, Linux, ubuntu
       - title: IoT 플랫폼
         sub_title: IoT 플랫폼 개발
         caption: 2021.02 ~ 2021.5
         description: | # this will include new lines to allow paragraphs
           * 안산시 IoT 플랫폼 S서비스 개발
+        right: 기술 스택
+        stack: reactJS, NodeJS, Postgresql, PM2, typescript, node-red, Linux, ubuntu
       - title: Music DMS
         sub_title: Music DMS 개발
         caption: 2021.06. ~ 2021.9
         description: | # this will include new lines to allow paragraphs
           * 정부 R&D과제 프로젝트 개발
+        right: 기술 스택
+        stack: Java8, Spring Boot, JPA, Postgrsql, tibero, PM2, Typescript, Angular7, tomcat8, Linux, ubuntu
       - title: 플러스콜 송출 개발
         sub_title: 신규 상품 개발
         caption: 2021.11 ~ 2022.07
         description: | # this will include new lines to allow paragraphs
           * 후후앱에 광고 송출 개발
+        right: 기술 스택
+        stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
       - title: 구글 RTB 송출 개발
         sub_title: 신규 상품 개발
         caption: 2022.08. ~ ing
         description: | # this will include new lines to allow paragraphs
           * 구글의 광고 지면에 광고를 입찰하는 로직 개발
+        right: 기술 스택
+        stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
       - title: 네이트 RTB 송출 개발
         sub_title: 신규 상품 개발
         caption: 2023.02. ~ ing
         description: | # this will include new lines to allow paragraphs
           * 네이트의 광고 지면에 광고를 입찰하는 로직 개발
+        right: 기술 스택
+        stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
   - title: Education
     layout: list
     content:
