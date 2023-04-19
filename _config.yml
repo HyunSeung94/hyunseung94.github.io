@@ -93,8 +93,8 @@ content:
         sub_title: 스마트시티 통합플랫폼 v2.0 개발 및 인증
         caption: 2020.07 ~ 2021.02
         description: | # this will include new lines to allow paragraphs
-          * 2020.07 ~ 2020.12 스마티시티 통합플랫폼 2.0 개발
-          * 2020.12 ~ 2021.02 통합플랫폼 GS 인증 획득
+          * 07 ~ 12 스마티시티 통합플랫폼 2.0 개발
+          * 12 ~ 02 통합플랫폼 GS 인증 획득
         right: 기술 스택
         stack: Java8, Spring Boot, JPA, Postgrsql, tibero, PM2, Typescript, Angular7, tomcat8, Linux, ubuntu
       - title: IoT 플랫폼
