@@ -27,8 +27,8 @@
       {{ item.description | strip | markdownify }}
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-print-12 content">
-      {%- if item.quote -%}
-      <p class="quote">{{ item.quote }}</p>
+      {%- if item.stack -%}
+      <p class="quote">{{ item.stack }}</p>
       {%- endif -%}
       {{ item.stack | strip | markdownify }}
     </div>
