@@ -50,7 +50,7 @@ additional_links:
 # about_title: About Me (Use this to override about section title)
 about_profile_image: Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
-  안녕하세요 저는 총 경력 4년 2개월 백엔드 개발자 김현승 입니다.
+  안녕하세요 저는 5년차 백엔드 개발자 김현승 입니다.
 
 content:
   - title: Projects # Title for the section
@@ -72,9 +72,9 @@ content:
         sub_title: Backend Developer
         caption: 2021.11 ~ 현재
         description: | # this will include new lines to allow paragraphs
-          * 플러스콜 신규 상품 개발
-          * 구글 RTB 송출 고도화 개발
-          * 네이트 RTB 신규 개발
+          * 플러스콜 신규 상품 개발 및 운영
+          * 구글 RTB , 카카오 RTB 서비스고도화 및 운영
+          * 네이트 RTB , LGCNS RTB 신규 개발
   - title: Experience
     layout: list
     content:
