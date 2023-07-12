@@ -118,18 +118,18 @@ content:
           * 후후앱에 광고 송출 개발
         right: 기술 스택
         stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
-      - title: 구글 RTB 송출 개발
+      - title: 구글 RTB , 카카오 RTB 서비스고도화 개발 및 운영
         sub_title: 신규 상품 개발
         caption: 2022.08. ~ ing
         description: | # this will include new lines to allow paragraphs
-          * 구글의 광고 지면에 광고를 입찰하는 로직 개발
+          * 구글,카카오의 광고 지면에 광고를 입찰하는 서비스 고도화 개발
         right: 기술 스택
         stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
-      - title: 네이트 RTB 송출 개발
+      - title: 네이트 RTB , LGCNS RTB 입찰 로직 개발
         sub_title: 신규 상품 개발
         caption: 2023.02. ~ ing
         description: | # this will include new lines to allow paragraphs
-          * 네이트의 광고 지면에 광고를 입찰하는 로직 개발
+          * 네이트 , LGCNS 의 광고 지면에 광고를 입찰하는 로직 개발
         right: 기술 스택
         stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
   - title: Education
