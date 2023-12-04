@@ -73,7 +73,8 @@ content:
         description: | # this will include new lines to allow paragraphs
           * 플러스콜 신규 상품 개발 및 운영
           * 구글 RTB , 카카오 RTB 서비스고도화 및 운영
-          * 네이트 RTB , LGCNS RTB 신규 개발
+          * LGCNS RTB 신규 개발
+          * 배포 프로세스 개선(Jenkins 무중단 배포)
   - title: Experience
     layout: list
     content:
@@ -125,13 +126,20 @@ content:
           * 구글,카카오의 광고 지면에 광고를 입찰하는 서비스 고도화 개발
         right: 기술 스택
         stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
-      - title: 네이트 RTB , LGCNS RTB 입찰 로직 개발
+      - title: LGCNS RTB 입찰 로직 개발
         sub_title: 신규 상품 개발
-        caption: 2023.02. ~ ing
+        caption: 2023.07. ~ 2023.09.
         description: | # this will include new lines to allow paragraphs
-          * 네이트 , LGCNS 의 광고 지면에 광고를 입찰하는 로직 개발
+          * LGCNS 의 광고 지면에 광고를 입찰하는 로직 개발
         right: 기술 스택
         stack: Java11 ,Spring Batch, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
+      - title: 배포 프로세스 변경
+        sub_title: 무중단 배포 개선
+        caption: 2023.10. ~ 2023.11.
+        description: | # this will include new lines to allow paragraphs
+          * 젠킨스를 통한 배포 자동화 구성
+        right: 기술 스택
+        stack: Jenkins, Nginx, Tomcat, L4, Linux
   - title: Education
     layout: list
     content:
