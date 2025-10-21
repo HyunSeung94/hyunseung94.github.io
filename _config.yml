@@ -129,14 +129,16 @@ content:
         sub_title: 신규 상품 개발
         caption: 2022.08. ~ ing
         description: | # this will include new lines to allow paragraphs
-          * 개요
-            RTB 입찰 API와의 실시간 연동 및 광고 입찰 로직 고도화를 담당했습니다.
-            초당 수천 건의 입찰 요청을 처리하는 환경에서, 응답 지연 문제와 배포 안정성 문제를 해결하기 위해 시스템 전반을 리팩터링했습니다.
-          
-          * 주요 성과
-            Jenkins + Nginx A/B 무중단 배포 환경 구축으로 배포 시간 70 % 단축
-            ClickHouse 기반 입찰 로그 분석 배치 작성으로 운영 모니터링 자동화 완료
-            Redis TTL 조정 및 Ehcache 설정 최적화로 메모리 사용량 30 % 감소
+          **개요**  
+          RTB 입찰 API와의 실시간 연동 및 광고 입찰 로직 고도화를 담당했습니다.  
+          초당 수천 건의 입찰 요청을 처리하는 환경에서  
+          응답 지연 문제와 배포 안정성 문제를 해결하기 위해  
+          시스템 전반을 리팩터링했습니다.  
+
+          **주요 성과**  
+          • Jenkins + Nginx A/B 무중단 배포 환경 구축으로 **배포 시간 70% 단축**  
+          • ClickHouse 기반 입찰 로그 분석 배치 작성으로 **운영 모니터링 자동화 완료**  
+          • Redis TTL 조정 및 Ehcache 설정 최적화로 **메모리 사용량 30% 감소**
         right: 기술 스택
         stack: Java11 ,Spring Batch, Spring Boot, Servlet, mysql, mongoDB, redis, kafka, L4, Linux
       - title: LGCNS RTB 입찰 로직 개발
