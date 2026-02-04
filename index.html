@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="김현승 - Backend Developer Portfolio">
+  <title>김현승 | Backend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0a0a0b;
+      --bg-secondary: #111113;
+      --bg-card: #18181b;
+      --text-primary: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #3b82f6;
+      --accent-hover: #60a5fa;
+      --border: #27272a;
+      --gradient-start: #3b82f6;
+      --gradient-end: #8b5cf6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 11, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .skill-category h3 {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-category h3 span {
+      font-size: 1.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      padding: 6px 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 48px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -38px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--bg-primary);
+    }
+
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .timeline-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-company {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .timeline-desc {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .timeline-desc li {
+      margin-bottom: 8px;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tech span {
+      padding: 4px 10px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-desc {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .timeline-item::before {
+        left: -30px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">KHS</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-label animate">Backend Developer</span>
+        <h1 class="animate delay-1">
+          안녕하세요,<br>
+          <span class="gradient">김현승</span>입니다
+        </h1>
+        <p class="hero-desc animate delay-2">
+          안정적이고 효율적인 시스템을 설계하는 백엔드 개발자입니다.
+          데이터 기반의 성능 개선과 자동화에 관심이 많습니다.
+        </p>
+        <div class="hero-buttons animate delay-3">
+          <a href="#contact" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Contact Me
+          </a>
+          <a href="https://github.com/hyunseung94" target="_blank" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">// ABOUT ME</p>
+        <h2 class="section-title">소개</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            2019년부터 백엔드 개발자로 일하며 다양한 서비스의 설계와 운영을 경험했습니다.
+          </p>
+          <p>
+            <strong>초당 수천 건의 입찰 요청</strong>을 안정적으로 처리하는 시스템을 구축했고,
+            CI/CD 파이프라인 개선으로 <strong>배포 시간을 70% 단축</strong>하는 등
+            실질적인 성과를 만들어왔습니다.
+          </p>
+          <p>
+            복잡한 문제를 단순하게 해결하고, 측정 가능한 개선을 추구합니다.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">6+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Major Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">70%</div>
+            <div class="stat-label">Deploy Time Reduced</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">RPS Handled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">// SKILLS</p>
+        <h2 class="section-title">기술 스택</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><span>💻</span> Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Java 8/11</span>
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Spring Batch</span>
+            <span class="skill-tag">JPA</span>
+            <span class="skill-tag">Servlet</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><span>🗄️</span> Database</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Tibero</span>
+            <span class="skill-tag">ClickHouse</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><span>⚡</span> Infrastructure</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Ehcache</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">L4</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><span>🔧</span> DevOps</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Tomcat</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><span>🌐</span> Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Angular</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><span>📊</span> Etc</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node-RED</span>
+            <span class="skill-tag">PM2</span>
+            <span class="skill-tag">Slack API</span>
+            <span class="skill-tag">Telegram API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">// EXPERIENCE</p>
+        <h2 class="section-title">경력</h2>
+      </div>
+      <div class="timeline">
+        <!-- 광고 플랫폼 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2021.11 - Present</div>
+          <h3 class="timeline-title">Backend Developer</h3>
+          <p class="timeline-company">AdTech Platform</p>
+          <ul class="timeline-desc">
+            <li><strong>구글/카카오 RTB 서비스 고도화</strong> (2022.08~현재)
+              <br>- RTB 입찰 API 실시간 연동 및 광고 입찰 로직 개발
+              <br>- 초당 수천 건의 입찰 요청 안정 처리
+              <br>- Jenkins + Nginx A/B 무중단 배포로 배포 시간 70% 단축
+              <br>- ClickHouse 기반 입찰 로그 분석 배치로 모니터링 자동화
+              <br>- Redis TTL 및 Ehcache 최적화로 메모리 사용량 30% 감소
+            </li>
+            <li><strong>LGCNS RTB 입찰 로직 개발</strong> (2023.07~2023.09)
+              <br>- LGCNS 광고 지면 입찰 로직 신규 개발
+            </li>
+            <li><strong>배포 프로세스 개선</strong> (2023.10~2023.11)
+              <br>- Jenkins Multi-Stage Pipeline으로 배포 전 과정 자동화
+              <br>- Blue/Green 방식 Nginx 업스트림으로 다운타임 0% 달성
+              <br>- L4 Health Check 기반 실시간 상태 검증
+              <br>- Slack/Telegram 알림으로 운영 가시성 향상
+              <br>- 배포 시간 15분 → 5분으로 단축
+            </li>
+            <li><strong>플러스콜 송출 개발</strong> (2021.11~2022.07)
+              <br>- 후후앱 광고 송출 기능 신규 개발
+            </li>
+          </ul>
+        </div>
+
+        <!-- 스마트시티 -->
+        <div class="timeline-item">
+          <div class="timeline-date">2019.04 - 2021.09</div>
+          <h3 class="timeline-title">Backend Developer</h3>
+          <p class="timeline-company">Smart City Platform</p>
+          <ul class="timeline-desc">
+            <li><strong>스마트시티 통합플랫폼</strong> (2019.04~2020.06)
+              <br>- 경산시, 파주시, 안산시 스마트시티 통합플랫폼 구축
+              <br>- 사내 솔루션 개발 및 운영
+            </li>
+            <li><strong>스마트시티 통합플랫폼 v2.0</strong> (2020.07~2021.02)
+              <br>- 통합플랫폼 2.0 신규 개발
+              <br>- GS 인증 획득 (2020.12~2021.02)
+            </li>
+            <li><strong>IoT 플랫폼</strong> (2021.02~2021.05)
+              <br>- 안산시 IoT 플랫폼 서비스 개발
+            </li>
+            <li><strong>Music DMS</strong> (2021.06~2021.09)
+              <br>- 정부 R&D 과제 프로젝트 개발
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">// PROJECTS</p>
+        <h2 class="section-title">프로젝트</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card" style="border-color: var(--accent);">
+          <a href="https://www.hslab.app" target="_blank" style="text-decoration: none; color: inherit;">
+            <h3 class="project-title" style="display: flex; align-items: center; gap: 8px;">
+              HSLab
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.6;">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </h3>
+            <p class="project-desc">
+              개인 사이드 프로젝트. 다양한 개발자 도구와 심리테스트를 제공하는 웹 서비스.
+              PDF 변환, 이미지 편집 등 실용적인 유틸리티 모음.
+            </p>
+          </a>
+          <div class="project-tech">
+            <span>Vue 3</span>
+            <span>Vite</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">구글/카카오 RTB 시스템</h3>
+          <p class="project-desc">
+            초당 수천 건의 입찰 요청을 처리하는 실시간 입찰 시스템.
+            Redis TTL/Ehcache 최적화로 메모리 사용량 30% 감소,
+            ClickHouse 기반 로그 분석 자동화.
+          </p>
+          <div class="project-tech">
+            <span>Java 11</span>
+            <span>Spring Boot</span>
+            <span>Redis</span>
+            <span>Kafka</span>
+            <span>ClickHouse</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">무중단 배포 시스템</h3>
+          <p class="project-desc">
+            Jenkins Multi-Stage Pipeline과 Blue/Green Nginx 업스트림으로
+            다운타임 0% 달성. 배포 시간 15분 → 5분 단축.
+            Slack/Telegram 알림 연동.
+          </p>
+          <div class="project-tech">
+            <span>Jenkins</span>
+            <span>Nginx</span>
+            <span>L4</span>
+            <span>Tomcat</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">스마트시티 통합플랫폼</h3>
+          <p class="project-desc">
+            경산시, 파주시, 안산시 스마트시티 통합플랫폼 구축.
+            플랫폼 2.0 개발 및 GS 인증 획득.
+          </p>
+          <div class="project-tech">
+            <span>Java 8</span>
+            <span>Spring Boot</span>
+            <span>JPA</span>
+            <span>PostgreSQL</span>
+            <span>Angular</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">IoT 플랫폼</h3>
+          <p class="project-desc">
+            안산시 IoT 플랫폼 서비스 개발.
+            Node-RED 기반 IoT 데이터 흐름 관리 및 실시간 모니터링.
+          </p>
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>PostgreSQL</span>
+            <span>Node-RED</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">플러스콜 광고 송출</h3>
+          <p class="project-desc">
+            후후앱에 광고 송출 기능 신규 개발.
+            Spring Batch 기반 대용량 데이터 처리.
+          </p>
+          <div class="project-tech">
+            <span>Java 11</span>
+            <span>Spring Batch</span>
+            <span>MySQL</span>
+            <span>MongoDB</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Music DMS</h3>
+          <p class="project-desc">
+            정부 R&D 과제 프로젝트.
+            음악 데이터 관리 시스템 백엔드 개발.
+          </p>
+          <div class="project-tech">
+            <span>Java 8</span>
+            <span>Spring Boot</span>
+            <span>JPA</span>
+            <span>Angular</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <p class="section-label">// CONTACT</p>
+        <h2 class="section-title">연락하기</h2>
+      </div>
+      <div class="contact-content">
+        <p>채용 관련 문의는 아래 이메일로 연락 부탁드립니다.</p>
+        <div class="contact-links">
+          <a href="mailto:gustmd8593@naver.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            gustmd8593@naver.com
+          </a>
+          <a href="https://github.com/hyunseung94" target="_blank" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Kim Hyunseung. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple scroll animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(30px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
