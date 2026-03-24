@@ -620,7 +620,8 @@
             실질적인 성과를 만들어왔습니다.
           </p>
           <p>
-            복잡한 문제를 단순하게 해결하고, 측정 가능한 개선을 추구합니다.
+            최근에는 Kubernetes 컨테이너 전환 및 CI/CD 파이프라인 구축을 통해
+            <strong>무중단 배포 자동화 환경</strong>을 설계하고 운영하고 있습니다.
           </p>
         </div>
         <div class="about-stats">
@@ -686,11 +687,14 @@
         <div class="skill-category">
           <h3><span>🔧</span> DevOps</h3>
           <div class="skill-tags">
+            <span class="skill-tag">Kubernetes</span>
             <span class="skill-tag">Jenkins</span>
             <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Podman</span>
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Linux</span>
             <span class="skill-tag">Tomcat</span>
+            <span class="skill-tag">NFS</span>
           </div>
         </div>
         <div class="skill-category">
@@ -745,6 +749,15 @@
               <br>- L4 Health Check 기반 실시간 상태 검증
               <br>- Slack/Telegram 알림으로 운영 가시성 향상
               <br>- 배포 시간 15분 → 5분으로 단축
+            </li>
+            <li><strong>광고 API 서버 Kubernetes 전환 및 CI/CD 구축</strong> (2026.02~2026.03)
+              <br>- WAR/Tomcat → Spring Boot JAR/K8s 컨테이너 배포 전환 (단독 설계/구축)
+              <br>- GitLab Webhook → Jenkins → Podman → Private Registry → K8s Rolling Update 전 과정 자동화
+              <br>- RollingUpdate + Graceful Shutdown으로 무중단 배포 구현
+              <br>- startupProbe/readinessProbe/livenessProbe 헬스체크 설계
+              <br>- NFS 기반 로그 중앙 수집 (Pod 재시작 시 로그 유실 방지, 30일 자동 보관)
+              <br>- 프론트 Pod → API Pod 간 K8s Service 내부 DNS 직접 호출로 네트워크 최적화
+              <br>- dev/stage/stage2 3개 환경을 단일 클러스터에서 브랜치 기반 분리 운영
             </li>
             <li><strong>플러스콜 송출 개발</strong> (2021.11~2022.07)
               <br>- 후후앱 광고 송출 기능 신규 개발
